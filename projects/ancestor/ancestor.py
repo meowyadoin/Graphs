@@ -1,7 +1,7 @@
 from util import Stack
 
 def earliest_ancestor(ancestors, starting_node): 
-    # ancestors is an array of sets: (u, v)
+    # ancestors is an array of sets
     # trace the graph and make a path until we reach a vertex that has no ancestors
     # if multiple vertices have no ancestors, return the last value of the longer path
 
