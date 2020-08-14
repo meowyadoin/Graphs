@@ -84,7 +84,7 @@ class SocialGraph:
         """
         visited = {}  # Note that this is a dictionary, not a set
         # !!!! IMPLEMENT ME
-        #BFS
+        #BFT
         q = Queue()
         q.enqueue([user_id])
 
@@ -106,3 +106,13 @@ if __name__ == '__main__':
     print(sg.friendships)
     connections = sg.get_all_social_paths(1)
     print(connections)
+# # Test at scale
+if __name__ == '__main__':
+    sg = SocialGraph()
+    sg.populate_graph(1000, 5)
+    connections = sg.get_all_social_paths(1)
+    print(f"Users in extended social network: {len(connections) - 1}")
+    total_social_paths = 0
+    for user_id in connections:
+        total_social_paths += len(connections[user_id])
+    print(f"Avg length of social path: {total_social_paths / len(connections)}")
